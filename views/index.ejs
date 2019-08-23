@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Test</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Title</h1>
+    <p>Welcome to working</p>
+    <ul>
+      <li>
+      <% if (user) { %>
+        <a href="/logout"> <%=user.name%>  Log Out</a>
+      <%    console.log(user)    } else { %>
+        <a href="/auth/google">Login with Google</a>
+      <% } %>
+      </li>
+    </ul>
   </body>
 </html>
