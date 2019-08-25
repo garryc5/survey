@@ -2,8 +2,8 @@
 <button>Make Survey</button>
 </form>
 <table>
-<% if(user.surveys.lenght >0) { %>
-<% for(let x = 0; x < user.surveys.lenght; x++){ %>
+<%  if(user.surveys.length >0) { %>
+<% for(let x = 0; x < user.surveys.length; x++){ %>
     <tr>
         <td>
             <%= user.surveys[x].name %>
@@ -11,7 +11,7 @@
         </td>
 
         <td>
-            <p>veiw</p>
+            <form action="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>" method="GET"><button>View</button></form>
         </td>
         <td>
             <p>send</p>
@@ -20,7 +20,7 @@
             <p>edit</p>
         </td>
         <td>
-            <p>delete</p>
+            <form action="/<%= user.surveys[x]._id %>?_method=DELETE" method="POST"><button>Delete</button></form>
         </td>
     </tr>
 <% }} else { %>

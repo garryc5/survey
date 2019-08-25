@@ -1,0 +1,16 @@
+<form action="/<%=uid%>/<%=sid%>" method="POST">
+<%survey.questions.forEach((qobj,idx)=>{ %>
+<h1>
+    <%= qobj['question'] %>
+</h1>
+<select name="q<%=idx%>">
+<% for (let [key] of Object.entries(qobj['answer'])) { %>
+ <option value="<%=key%>"><%=key%></option>   
+    <%  } %>
+
+</select>
+
+    <% }) %>
+<button>submit</button>
+</form>
+

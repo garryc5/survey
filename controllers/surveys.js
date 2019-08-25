@@ -1,3 +1,5 @@
+Users = require('../models/survey');
+
 function index(req, res, next) {
     if(req.user){req.user.save()};
         res.render('survey/index', {
@@ -45,9 +47,56 @@ function newSurvey(req, res)
     });
 }
 
+function surveyDelete(req,res)
+{
+req.user.surveys.forEach((s,idx)=>{
+        if(s._id==req.params.id){req.user.surveys.splice(idx,1)}
+    })
+req.user.save();
+res.redirect('/');
+}
+
+function show(req,res)
+{ 
+       Users.find({googleId:`${req.params.id}` })
+       .then((x)=>{
+           x[0].surveys.forEach((s)=>{
+            if(s._id==req.params.survey)
+            {
+                    res.render('survey/show',
+                    {
+                        user : req.user,
+                        survey : s,
+                        uid : req.params.id,
+                        sid : req.params.survey,
+                    })}})})  
+}
+
+function takeSurvey(req,res)
+{ 
+       Users.find({googleId:`${req.params.id}` })
+       .then((x)=>{
+           x[0].surveys.forEach((s ,sid)=>{
+            if(s._id==req.params.survey)
+            {
+            s.questions.forEach((q,qIdx)=>
+            {
+                q.answer[req.body[`q${qIdx}`]]++;            
+            })}
+                console.log(x[0].surveys)
+
+                x[0].save().then(res.redirect('/'));
+                
+        }) 
+    })    
+}
+
 module.exports = 
   {
       index,
       create,
       new : newSurvey, 
+      delete : surveyDelete,
+      show,
+      takeSurvey
   };
