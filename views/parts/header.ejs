@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body>
+<nav>
+    <h1>Survey To Api</h1>
+  <% if (user) { %>
+    <a href="/logout"> <%=user.name%>  Log Out</a>
+  <% } else { %>
+    <a href="/auth/google">Login with Google</a>
+  <% } %>
+</nav>

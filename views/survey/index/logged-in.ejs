@@ -1,0 +1,29 @@
+<form action="/new" method="GET">
+<button>Make Survey</button>
+</form>
+<table>
+<% if(user.surveys.lenght >0) { %>
+<% for(let x = 0; x < user.surveys.lenght; x++){ %>
+    <tr>
+        <td>
+            <%= user.surveys[x].name %>
+           :  
+        </td>
+
+        <td>
+            <p>veiw</p>
+        </td>
+        <td>
+            <p>send</p>
+        </td>
+        <td>
+            <p>edit</p>
+        </td>
+        <td>
+            <p>delete</p>
+        </td>
+    </tr>
+<% }} else { %>
+<p>Make a survey to start.</p>
+<% } %>
+</table>

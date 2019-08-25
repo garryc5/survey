@@ -1,0 +1,8 @@
+<%- include('../parts/header') %>
+<% if (user) { %>
+  <%- include('index/logged-in') %>
+<% user.save()} else { %>
+  <%- include('index/logged-out') %>
+<% } %>
+  </body>
+</html>
