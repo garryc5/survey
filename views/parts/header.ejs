@@ -8,8 +8,8 @@
 <nav>
     <h1>Survey To Api</h1>
   <% if (user) { %>
-    <a href="/logout"> <%=user.name%>  Log Out</a>
+    <a id="nava" href="/logout"> <%=user.name%>  Log Out</a>
   <% } else { %>
-    <a href="/auth/google">Login with Google</a>
+    <a id="nava" href="/auth/google">Login with Google</a>
   <% } %>
 </nav>

@@ -11,16 +11,16 @@
         </td>
 
         <td>
-            <form action="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>" method="GET"><button>View</button></form>
+            <form action="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>/0" method="GET"><button>Preview</button></form>
         </td>
         <td>
-            <p>send</p>
-        </td>
-        <td>
-            <p>edit</p>
+            <form action="/<%= user.surveys[x]._id %>/edit" method="GET"><button>Edit</button></form>
         </td>
         <td>
             <form action="/<%= user.surveys[x]._id %>?_method=DELETE" method="POST"><button>Delete</button></form>
+        </td>
+        <td>
+            <a href="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>/1" target="_black">Link to Take <%=user.surveys[x].name%></a>
         </td>
     </tr>
 <% }} else { %>

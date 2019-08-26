@@ -7,9 +7,11 @@ var surveyCtrl = require('../controllers/surveys');
 /* GET home page. */
 router.get('/', surveyCtrl.index);
 router.get('/new', surveyCtrl.new);
+router.get('/:id/edit', isAuth, surveyCtrl.edit);
 router.post('/',isAuth, surveyCtrl.create);
 router.delete('/:id', isAuth, surveyCtrl.delete);
-router.get('/show/:id/:survey', surveyCtrl.show);
+router.patch('/:id', isAuth, surveyCtrl.update);
+router.get('/show/:id/:survey/:preview', surveyCtrl.show);
 router.post('/:id/:survey', surveyCtrl.takeSurvey);
 router.get('/auth/google', passport.authenticate(
   'google', { scope: ['profile'] }));

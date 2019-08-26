@@ -1,15 +1,14 @@
 Users = require('../models/survey');
 
-function index(req, res, next) {
+function index(req, res) {
     if(req.user){req.user.save()};
         res.render('survey/index', {
         user : req.user,
      })
-    };
+    }
 
 function create(req, res)
 {
-    // get numbers of questions
     let temp = 
   {
       name : req.body.name,
@@ -29,7 +28,6 @@ function create(req, res)
             if(value){tempq.answer[value] = 0}
             if(key.split("").pop()=='3')
             {
-                console.log(tempq);
                 temp.questions.push(tempq);
             }
         }
@@ -69,26 +67,67 @@ function show(req,res)
                         survey : s,
                         uid : req.params.id,
                         sid : req.params.survey,
+                        pre : req.params.preview,
                     })}})})  
 }
 
 function takeSurvey(req,res)
 { 
-       Users.find({googleId:`${req.params.id}` })
+       Users.findOne({googleId:`${req.params.id}` })
        .then((x)=>{
-           x[0].surveys.forEach((s ,sid)=>{
+           x.surveys.forEach((s ,sid)=>{
             if(s._id==req.params.survey)
             {
             s.questions.forEach((q,qIdx)=>
             {
-                q.answer[req.body[`q${qIdx}`]]++;            
+                q.answer[req.body[`q${qIdx}`]]++;  
+                q.markModified('answer');
             })}
-                console.log(x[0].surveys)
+                console.log(x.surveys)
 
-                x[0].save().then(res.redirect('/'));
+                x.save().then(res.redirect('/'));
                 
         }) 
     })    
+}
+
+function edit(req ,res)
+{
+    req.user.surveys.forEach((s)=>{
+        if(s._id==req.params.id){
+            res.render('survey/edit',
+            {
+                user : req.user,
+                survey : s,
+            });
+        }
+    })
+}
+
+function updateSurvey(req,res)
+{
+    req.user.surveys.forEach((s,idx)=>{
+        if(s._id==req.params.id)
+        {
+            s.questions.forEach((q)=>
+            {
+                q.question = req.body[`q${idx}`];
+                let x = 0;
+                let temp ={};
+                for (let [key] of Object.entries(q.answer)) 
+                {
+                    delete q.answer[key];
+                    temp[req.body[`a${x}`]] =0;
+                    x++;
+                }
+                Object.assign(q.answer,temp);
+                q.markModified('answer');
+                s.markModified('question');
+                req.user.save();
+            })
+            res.redirect('/');
+        }
+    })
 }
 
 module.exports = 
@@ -98,5 +137,7 @@ module.exports =
       new : newSurvey, 
       delete : surveyDelete,
       show,
-      takeSurvey
-  };
+      takeSurvey,
+      update : updateSurvey,
+      edit,
+  }
