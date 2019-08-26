@@ -22,6 +22,11 @@
         <td>
             <a href="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>/1" target="_black">Link to Take <%=user.surveys[x].name%></a>
         </td>
+        <td>
+            <label> Link to Api: 
+            <input type="text" value="https://surveyapiandcharts.herokuapp.com/api/<%=user.googleId%>/<%= user.surveys[x]._id %>">
+            </label>
+        </td>
     </tr>
 <% }} else { %>
 <p>Make a survey to start.</p>
