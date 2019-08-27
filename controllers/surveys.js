@@ -75,7 +75,7 @@ function takeSurvey(req,res)
 { 
        Users.findOne({googleId:`${req.params.id}` })
        .then((x)=>{
-           x.surveys.forEach((s ,sid)=>{
+           x.surveys.forEach((s)=>{
             if(s._id==req.params.survey)
             {
             s.questions.forEach((q,qIdx)=>
@@ -85,8 +85,13 @@ function takeSurvey(req,res)
             })}
                 console.log(x.surveys)
 
-                x.save().then(res.redirect('/'));
-                
+                x.save().then(()=>{
+                    res.render('parts/thanks',
+                    {
+                        s,
+                        user : req.user,
+                    });
+                });     
         }) 
     })    
 }
@@ -130,6 +135,11 @@ function updateSurvey(req,res)
     })
 }
 
+function thankAlert()
+{
+
+}
+
 module.exports = 
   {
       index,
@@ -141,4 +151,3 @@ module.exports =
       update : updateSurvey,
       edit,
   }
-  

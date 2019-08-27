@@ -1,3 +1,5 @@
+<%- include('../parts/header') %>
+
 <form action="/<%=uid%>/<%=sid%>" method="POST">
 <%survey.questions.forEach((qobj,idx)=>{ %>
 <h1>
@@ -15,4 +17,4 @@
 <button>submit</button>
 <% } %>
 </form>
-
+</body>

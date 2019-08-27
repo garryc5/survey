@@ -1,17 +1,17 @@
+<script defer src="/javascripts/hideShow.js"></script>
+
+
 <form action="/new" method="GET">
 <button>Make Survey</button>
 </form>
-<table>
 <%  if(user.surveys.length >0) { %>
 <% for(let x = 0; x < user.surveys.length; x++){ %>
+    <h3 id="<%= x %>"> <%= user.surveys[x].name %><div>^</div></h3>
+<div class="hidden">
+ <table>
     <tr>
         <td>
-            <%= user.surveys[x].name %>
-           :  
-        </td>
-
-        <td>
-            <form action="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>/0" method="GET"><button>Preview</button></form>
+            <form action="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>/0" method="GET"><button>Preview Survey</button></form>
         </td>
         <td>
             <form action="/<%= user.surveys[x]._id %>/edit" method="GET"><button>Edit</button></form>
@@ -28,7 +28,10 @@
             </label>
         </td>
     </tr>
+</table>
+<div id="graphs"></div>
+</div>
 <% }} else { %>
 <p>Make a survey to start.</p>
 <% } %>
-</table>
+</body>

@@ -1,6 +1,8 @@
 body {
+  box-sizing: border-box;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightsteelblue;
 }
 #nava
 {
@@ -18,4 +20,38 @@ nav
   padding: 5vh 3vw 1vh;
   width: 94vw;
   color: aquamarine;
+}
+.hidden
+{
+  display: none;
+}
+#tyCard
+{
+  text-align: center;
+  width: 80vw;
+  height: 30vh;
+  position: fixed;
+  z-index: 5;
+  left: 10vw;
+  top: 20vh;
+  background-color: dimgray;
+  color: aquamarine;
+  border: 1vw solid lightblue;
+}
+h3
+{
+  display: flex;
+  align-content: center;
+  background-color: dimgray;
+  color: aquamarine;
+  border: 1vw solid lightblue;
+  padding: 2vh;
+}
+h3 div
+{
+position: relative;
+left: 90%;
+z-index: 5;
+transform: rotate(90deg);
+margin: 0;
 }

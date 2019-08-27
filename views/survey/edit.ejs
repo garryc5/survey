@@ -1,3 +1,4 @@
+<%- include('../parts/header') %>
 <h3>editing <%= survey.name%></h3>
 <form action="/<%= survey._id %>?_method=PATCH" method="POST">    
         <%survey.questions.forEach((qobj,idx)=>{ %>
