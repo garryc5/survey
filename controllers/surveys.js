@@ -135,10 +135,7 @@ function updateSurvey(req,res)
     })
 }
 
-function thankAlert()
-{
 
-}
 
 module.exports = 
   {
