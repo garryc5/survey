@@ -8,7 +8,7 @@
 <nav>
     <h1>Survey To Api</h1>
   <% if (user) { %>
-    <a id="nava" href="/logout"> <%=user.name%>  Log Out</a>
+    <a id="nava" href="/logout"> <%=user.name%> <br> Log Out</a>
   <% } else { %>
     <a id="nava" href="/auth/google">Login with Google</a>
   <% } %>

@@ -1,19 +1,23 @@
 <%- include('../parts/header') %>
 <script src='/javascripts/addQuestions.js'></script>
-<h1>Making new survey</h1>
+<h1>Making A New Survey</h1>
 <form action="/" method="POST" id="addToSurvey">
     <label>Survey Name: 
     <input type="text" name="name" placeholder="Required" required></label>
-    <div id='lastQuestion'>
-    <label>Question:
-    <input type="text" name="question0" placeholder="Required" required></label>
-    <label>Answers:
-    <input type="text" name="a00" placeholder="Required" required>
-    <input type="text" name="a01" placeholder="Required" required>
-    <input type="text" name="a02" placeholder="Optional" >
-    <input type="text" name="a03" placeholder="Optional" ></label>
-    </div>
+    <br><br>
+        <div id='lastQuestion'>
+            <div>
+            <label>Question:
+            <input type="text" name="question0" placeholder="Required" required></label>
+            <br>
+            <label>Answers: <br>
+            <input type="text" name="a00" placeholder="Required" required>
+            <input type="text" name="a01" placeholder="Required" required>
+            <input type="text" name="a02" placeholder="Optional" >
+            <input type="text" name="a03" placeholder="Optional" ></label>
+            </div>
+        </div>
     <button>Submit</button>
 </form>
-<button onclick="addQuestions()">test</button>
+<button onclick="addQuestions()">Add Question</button>
 </body>

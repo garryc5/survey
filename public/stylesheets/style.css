@@ -3,13 +3,28 @@ body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: lightsteelblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-#nava
+#nava, button, select
 {
   color: violet;
-  padding: 2px;
+  padding: 4px;
   border: 2px solid violet;
   background-color: grey;
+  width: 15vw;
+}
+label
+{
+  color: violet;
+  text-align: center;
+}
+select
+{
+  width: 45vw;
+  font-size: 20px;
 }
 nav
 {
@@ -24,6 +39,7 @@ nav
 .hidden
 {
   display: none;
+  background-color: dimgray;
 }
 #tyCard
 {
@@ -46,6 +62,7 @@ h3
   color: aquamarine;
   border: 1vw solid lightblue;
   padding: 2vh;
+  width: 90vw;
 }
 h3 div
 {
@@ -54,4 +71,37 @@ left: 90%;
 z-index: 5;
 transform: rotate(90deg);
 margin: 0;
+}
+table
+{
+  border: 1vw solid lightblue;
+}
+tr ,td,td form
+{
+  display: flex;
+  align-content: stretch;
+}
+#show
+{
+  width: 95vw;
+  display: flex;
+  justify-content: space-between;
+}
+.pieChart
+{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 1px 5px 10px black;
+}
+input
+{
+  width: 20vw;
+  height: 10vh;
+}
+#addToSurvey, #lastQuestion div
+{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

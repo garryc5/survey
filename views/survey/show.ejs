@@ -1,20 +1,19 @@
 <%- include('../parts/header') %>
-
+<h1><%= survey.name %></h1><br><br>
 <form action="/<%=uid%>/<%=sid%>" method="POST">
-<%survey.questions.forEach((qobj,idx)=>{ %>
-<h1>
-    <%= qobj['question'] %>
-</h1>
-<select name="q<%=idx%>">
-<% for (let [key] of Object.entries(qobj['answer'])) { %>
- <option value="<%=key%>"><%=key%></option>   
+    <div id="show">
+    <%survey.questions.forEach((qobj,idx)=>{ %>
+        <h1> <%= qobj['question'] %></h1>
+        <select name="q<%=idx%>">
+    <% for (let [key] of Object.entries(qobj['answer'])) { %>
+        <option value="<%=key%>"><%=key%></option>   
     <%  } %>
-
-</select>
-
+        </select>
     <% }) %>
+    </div>
     <% if(parseInt(pre)) { %>
-<button>submit</button>
-<% } %>
+    <br><br>
+    <button>submit</button>
+    <% } %>  
 </form>
 </body>
