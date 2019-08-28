@@ -29,12 +29,24 @@ select
 nav
 {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: stretch;
   background-color: dimgray;
   padding: 5vh 3vw 1vh;
   width: 94vw;
   color: aquamarine;
+}
+nav button
+{
+  height: 15vh;
+  width: 22vw;
+  font-size: 20px
+}
+nav h1
+{
+  position: absolute;
+  top: 4vh;
+  left: 9vw;
 }
 .hidden
 {

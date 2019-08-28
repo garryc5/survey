@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Test</title>
+    <title>Surveys</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
 <nav>
     <h1>Survey To Api</h1>
+    <form action="/" method="GET">
+    <button>Surveys<br></button>
+    </form>
     <form action="/new" method="GET">
-    <button>Make Survey</button>
+    <button>Make Survey<br></button>
     </form>
   <% if (user) { %>
     <a id="nava" href="/logout"> <%=user.name%> <br> Log Out</a>
   <% } else { %>
-    <a id="nava" href="/auth/google">Login with Google</a>
+    <a id="nava" href="/auth/google">Login <br> with Google</a>
   <% } %>
 </nav>
