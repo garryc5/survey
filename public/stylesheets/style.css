@@ -98,6 +98,7 @@ tr ,td,td form
 {
   width: 95vw;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .pieChart
