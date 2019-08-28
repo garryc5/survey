@@ -10,7 +10,7 @@ Made using: Javascript, Node, Express, MongoDb, Mongoose, AWS, HTML, CSS.
 ![Oh NO](https://i.imgur.com/LCxVGz7.png);
 
 ## Next Steps 
-add user color schemes
-add a wider varity of question types 
-add an api to export to excel
-add abitity to add images
+[] add user color schemes
+[] add a wider varity of question types 
+[] add an api to export to excel
+[] add abitity to add images
