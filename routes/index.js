@@ -6,7 +6,7 @@ var surveyCtrl = require('../controllers/surveys');
 
 /* GET home page. */
 router.get('/', surveyCtrl.index);
-router.get('/new', surveyCtrl.new);
+router.get('/new',isAuth, surveyCtrl.new);
 router.get('/:id/edit', isAuth, surveyCtrl.edit);
 router.post('/',isAuth, surveyCtrl.create);
 router.delete('/:id', isAuth, surveyCtrl.delete);
