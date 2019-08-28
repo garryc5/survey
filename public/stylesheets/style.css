@@ -80,10 +80,7 @@ h3
 h3 div
 {
 position: relative;
-left: 90%;
-z-index: 5;
-transform: rotate(90deg);
-margin: 0;
+margin-left: auto;
 }
 table
 {

@@ -16,7 +16,7 @@ function showPre(evt)
     })
     if(!(currentlyOpen == evt.target.id)){
         evt.target.nextElementSibling.style.display = "block"; 
-        evt.target.firstElementChild.textContent=">"
+        evt.target.firstElementChild.textContent="v"
         currentlyOpen = evt.target.id;
 }else{currentlyOpen = " "}
 }
