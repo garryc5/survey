@@ -24,6 +24,7 @@ function pie(req,res)
     {
         x.surveys.forEach((s)=>
         {
+            var divToSend = '';
             s.questions.forEach((q)=>
             { 
                 var forGraph = [0,0];
@@ -42,16 +43,16 @@ function pie(req,res)
                     deg += ((parseInt(value)/forGraph[1])*180);
                     gradString += `, linear-gradient(${deg}deg, ${currentColor} 50%, transparent 50%)`;
                 } 
-        var divToSend =  
-        `<h4>${q.question}</h4>`;
-        keyString = keyString.split('*');
-        keyString.forEach((k)=>{ 
-        divToSend +=`<h6>${k}</h6>`;
-        }) 
-        divToSend+=`<div class="pieChart" style="background-image: ${gradString}; height: 200px; width: 200px;   border-radius: 50%;" ></div>`
-        res.status(200).json(divToSend);
+            divToSend +=  `<h4>${q.question}</h4>`;
+            keyString = keyString.split('*');
+            keyString.forEach((k)=>{ 
+            divToSend +=`<h6>${k}</h6>`;
+             }) 
+            divToSend+=`<div class="pieChart" style="background-image: ${gradString}; height: 200px; width: 200px;   border-radius: 50%;" ></div>`;
             })
-        })  
+            res.status(200).json(divToSend);
+        }) 
+         
     })}
 
 function line(req,res)
