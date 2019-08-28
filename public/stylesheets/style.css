@@ -2,7 +2,8 @@ body {
   box-sizing: border-box;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: lightsteelblue;
+  background-color: rgb(132, 178, 238);
+  color: aquamarine;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,15 +11,14 @@ body {
 }
 #nava, button, select
 {
-  color: violet;
+  color: rgb(255, 116, 255);
   padding: 4px;
   border: 2px solid violet;
-  background-color: grey;
+  background-color: rgb(65, 66, 66);
   width: 15vw;
 }
 label
 {
-  color: violet;
   text-align: center;
 }
 select
@@ -31,27 +31,29 @@ nav
   display: flex;
   justify-content: flex-end;
   align-items: stretch;
-  background-color: dimgray;
+  background-color: rgb(156, 169, 173);
   padding: 5vh 3vw 1vh;
   width: 94vw;
-  color: aquamarine;
+}
+#nava{
+  display: flex;
+  align-items: center;
 }
 nav button
 {
-  height: 15vh;
-  width: 22vw;
+  height: 18vh;
+  width: 20vw;
   font-size: 20px
 }
 nav h1
 {
-  position: absolute;
-  top: 4vh;
-  left: 9vw;
+width: 30vw;
 }
 .hidden
 {
   display: none;
-  background-color: dimgray;
+  margin: 0 5vw;
+  background-color: rgb(107, 107, 109);
 }
 #tyCard
 {
@@ -71,7 +73,6 @@ h3
   display: flex;
   align-content: center;
   background-color: dimgray;
-  color: aquamarine;
   border: 1vw solid lightblue;
   padding: 2vh;
   width: 90vw;
@@ -120,6 +121,8 @@ input
 {
   width: 20vw;
   height: 10vh;
+  background-color: rgb(65, 65, 66);
+  color: rgb(236, 184, 238);
 }
 #addToSurvey, #lastQuestion div
 {

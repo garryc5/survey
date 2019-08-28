@@ -6,12 +6,15 @@
   </head>
   <body>
 <nav>
-    <h1>Survey To Api</h1>
+    <h1>Survey <br>To Api</h1>
     <form action="/" method="GET">
     <button>Surveys<br></button>
     </form>
     <form action="/new" method="GET">
     <button>Make Survey<br></button>
+    </form>
+    <form action="/api" method="GET">
+    <button>API Docs<br></button>
     </form>
   <% if (user) { %>
     <a id="nava" href="/logout"> <%=user.name%> <br> Log Out</a>

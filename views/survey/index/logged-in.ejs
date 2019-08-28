@@ -45,15 +45,14 @@
 <% keyStringLG.push(`${key}: ${value}: `) %>
 <% console.log(lineString);%>
 <% } %>
+<h4 style="text-align: center; grid-column: span 2;"><%=q.question%></h4>
 <div>
-<h4><%=q.question%></h4>
 <%keyString = keyString.split('*');%>
 <%keyString.forEach((k)=>{ %>
 <h6><%= k %></h6>
 <% }) %>
 <div class="pieChart" style="background-image: <%=gradString%>" ></div>
 </div>
-<!-- pie close -->
 <div class="LineGraph">
 <% lineString.forEach((style,idx)=>{%>
 <div style="transform: rotate(270deg); position: relative; top: -25%;" ><%=keyStringLG[idx]%></div>
@@ -62,9 +61,14 @@
 </div>
 </div>
 <%})%>
-<!-- graphs close -->
 </div>
 <% }} else { %>
-<p>Make a survey to start.</p>
+<p>Make a Survey And Get Started</p>
+<form action="/new" method="GET">
+<button>Make Survey<br></button>
+</form>
+<p>Once Your Survey is Made You Will Be Able:</p>
+<p>Send your Surveys to Firends, Family, or Anyone!</p>
+<p>The Results of your Survey Can Be Veiwed or Sent as an API.</p>
 <% } %>
 </body>
