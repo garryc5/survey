@@ -94,6 +94,16 @@ tr ,td,td form
   border-radius: 50%;
   box-shadow: 1px 5px 10px black;
 }
+.LineGraph
+{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  border-left: 1vw solid black;
+  border-bottom: 1vw solid black; 
+  width: 200px;
+  height: 200px;
+}
 input
 {
   width: 20vw;
@@ -103,5 +113,12 @@ input
 {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+}
+.graphs
+{
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+  justify-content: center;
   align-items: flex-end;
 }

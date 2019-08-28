@@ -67,7 +67,6 @@ function show(req,res)
                         survey : s,
                         uid : req.params.id,
                         sid : req.params.survey,
-                        pre : req.params.preview,
                     })}})})  
 }
 

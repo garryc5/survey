@@ -11,7 +11,7 @@ router.get('/:id/edit', isAuth, surveyCtrl.edit);
 router.post('/',isAuth, surveyCtrl.create);
 router.delete('/:id', isAuth, surveyCtrl.delete);
 router.patch('/:id', isAuth, surveyCtrl.update);
-router.get('/show/:id/:survey/:preview', surveyCtrl.show);
+router.get('/show/:id/:survey', surveyCtrl.show);
 router.post('/:id/:survey', surveyCtrl.takeSurvey);
 router.get('/auth/google', passport.authenticate(
   'google', { scope: ['profile'] }));
@@ -27,7 +27,6 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
-
 
 function isAuth(req, res, next) {
   if ( req.isAuthenticated() ) return next();

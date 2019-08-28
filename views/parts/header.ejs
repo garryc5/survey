@@ -7,6 +7,9 @@
   <body>
 <nav>
     <h1>Survey To Api</h1>
+    <form action="/new" method="GET">
+    <button>Make Survey</button>
+    </form>
   <% if (user) { %>
     <a id="nava" href="/logout"> <%=user.name%> <br> Log Out</a>
   <% } else { %>

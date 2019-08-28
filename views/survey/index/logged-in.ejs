@@ -1,9 +1,4 @@
 <script defer src="/javascripts/hideShow.js"></script>
-
-
-<form action="/new" method="GET">
-<button>Make Survey</button>
-</form>
 <%  if(user.surveys.length >0) { %>
 <% for(let x = 0; x < user.surveys.length; x++){ %>
     <h3 id="<%= x %>"> <%= user.surveys[x].name %><div>^</div></h3>
@@ -11,37 +6,44 @@
  <table>
     <tr>
         <td>
-            <form action="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>/0" method="GET"><button>Preview Survey</button></form>
-        </td>
-        <td>
             <form action="/<%= user.surveys[x]._id %>/edit" method="GET"><button>Edit</button></form>
         </td>
         <td>
             <form action="/<%= user.surveys[x]._id %>?_method=DELETE" method="POST"><button>Delete</button></form>
         </td>
         <td>
-            <form action="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>/1" target="_black"><button>Link to Take <%=user.surveys[x].name%></button></form>
+            <form action="/show/<%=user.googleId%>/<%= user.surveys[x]._id %>" target="_black"><button>Link to Take <%=user.surveys[x].name%></button></form>
         </td>
         <td>
-            <label> Link to Api: <br>
-            <input type="text" value="https://surveyapiandcharts.herokuapp.com/api/<%=user.googleId%>/<%= user.surveys[x]._id %>">
+                <label> Link to <br> Take Survey:
+                <input type="text" value="https://surveyapiandcharts.herokuapp.com/show/<%=user.googleId%>/<%= user.surveys[x]._id %>" readonly>
+                </label>
+            </td>
+        <td>
+            <label> Link to  <br> Api:
+            <input type="text" value="https://surveyapiandcharts.herokuapp.com/api/<%=user.googleId%>/<%= user.surveys[x]._id %>"readonly>
             </label>
         </td>
     </tr>
 </table>
 
 <% user.surveys[x].questions.forEach((q)=>{ %>
-<div id="graphs">
+<div class="graphs">
 <% var forGraph = [0,0];%>
 <% for(let [key,value] of Object.entries(q.answer)) { %>
 <% forGraph[0]++; forGraph[1]+=parseInt(value); %>
 <% } %>
-<%var keyString = 'Key: * '; var gradString ='linear-gradient(0deg, black 50%, transparent 50%)'; var deg=0; var colors = ['red','blue','green','purple']%>
+<%var lineString = []; var keyStringLG = [];%>
+<% var keyString = 'Key: * '; var gradString ='linear-gradient(0deg, black 50%, transparent 50%)'; var deg=0; var colors = ['red','blue','green','purple']%>
 <% for(let [key,value] of Object.entries(q.answer)) { %>
 <% var currentColor = colors.pop(); %>
 <% keyString += `${key}: ${value}: ${currentColor} * `;%>
-<% deg += ((parseInt(value)/forGraph[1])*180);%>
+<% var currentPercent=(parseInt(value)/forGraph[1]); %> 
+<% deg += (currentPercent*180);%>
 <% gradString += `, linear-gradient(${deg}deg, ${currentColor} 50%, transparent 50%)`%>
+<% lineString.push(`background-color: ${currentColor}; height: ${currentPercent*100}%; width: 20px;`) %>
+<% keyStringLG.push(`${key}: ${value}: `) %>
+<% console.log(lineString);%>
 <% } %>
 <div>
 <h4><%=q.question%></h4>
@@ -50,10 +52,16 @@
 <h6><%= k %></h6>
 <% }) %>
 <div class="pieChart" style="background-image: <%=gradString%>" ></div>
-<%})%>
 </div>
 <!-- pie close -->
+<div class="LineGraph">
+<% lineString.forEach((style,idx)=>{%>
+<div style="transform: rotate(270deg); position: relative; top: -25%;" ><%=keyStringLG[idx]%></div>
+<div style = "<%= style %>"></div>
+<%}) %>
 </div>
+</div>
+<%})%>
 <!-- graphs close -->
 </div>
 <% }} else { %>
