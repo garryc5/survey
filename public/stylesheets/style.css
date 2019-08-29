@@ -135,3 +135,7 @@ input
   justify-content: center;
   align-items: flex-end;
 }
+#editSurvey *
+{
+  margin: 1vmin;
+}

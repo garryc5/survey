@@ -1,11 +1,15 @@
 <%- include('../parts/header') %>
 <h3>editing <%= survey.name%></h3>
-<form action="/<%= survey._id %>?_method=PATCH" method="POST">    
+<h5>Note: editing a Survey will delete the current answer data!!!!</h5>
+<p>this is to ensure data integrity</p>
+<form action="/<%= survey._id %>?_method=PATCH" method="POST" id="editSurvey">    
         <%survey.questions.forEach((qobj,idx)=>{ %>
+            <br>
         <input type="text" name="q<%=idx%>" value="<%= qobj['question'] %>">
+        <br>
         <%let x =0;%>
         <% for (let [key] of Object.entries(qobj['answer'])) { %>
-         <input type="text" name="a<%=x%>" value="<%=key%>">   
+         <input type="text" name="a<%=idx%><%=x%>" value="<%=key%>">   
             <% x++; } %>
         
         </select>

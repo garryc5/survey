@@ -110,10 +110,10 @@ function edit(req ,res)
 
 function updateSurvey(req,res)
 {
-    req.user.surveys.forEach((s,idx)=>{
+    req.user.surveys.forEach((s)=>{
         if(s._id==req.params.id)
         {
-            s.questions.forEach((q)=>
+            s.questions.forEach((q,idx)=>
             {
                 q.question = req.body[`q${idx}`];
                 let x = 0;
@@ -121,15 +121,15 @@ function updateSurvey(req,res)
                 for (let [key] of Object.entries(q.answer)) 
                 {
                     delete q.answer[key];
-                    temp[req.body[`a${x}`]] =0;
+                    temp[req.body[`a${idx}${x}`]] =0;
                     x++;
                 }
                 Object.assign(q.answer,temp);
                 q.markModified('answer');
                 s.markModified('question');
-                req.user.save();
             })
-            res.redirect('/');
+            req.user.save().then(
+            res.redirect('/'));
         }
     })
 }
