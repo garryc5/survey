@@ -100,11 +100,11 @@ tr ,td,td form
 }
 .pieChart
 {
-  width: 200px;
-  height: 200px;
+  width: 40vw;
+  height: 40vw;
   border-radius: 50%;
   position: relative;
-  top: 15vh;
+  top: 13vmax;
 }
 .LineGraph
 {
@@ -114,8 +114,8 @@ tr ,td,td form
   align-items: flex-end;
   border-left: 1vw solid black;
   border-bottom: 1vw solid black; 
-  width: 200px;
-  height: 200px;
+  width: 40vw;
+  height: 40vw;
 }
 input
 {
@@ -136,7 +136,7 @@ input
   grid-template-columns: repeat(2,2fr);
   justify-content: center;
   align-items: flex-end;
-  padding: 1vmin 0 15vh 0;
+  padding: 1vmin 0 13vh 0;
 }
 #editSurvey *
 {
