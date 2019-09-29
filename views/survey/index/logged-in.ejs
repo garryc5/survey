@@ -34,7 +34,7 @@
 <% forGraph[0]++; forGraph[1]+=parseInt(value); %>
 <% } %>
 <%var lineString = []; var keyStringLG = [];%>
-<% var keyString = 'Key: * '; var gradString ='linear-gradient(0deg, black 50%, transparent 50%)'; var deg=0; var colors = ['red','blue','green','purple']%>
+<% var keyString = 'Key: * '; var gradString ='linear-gradient(0deg, white 50%, transparent 50%)'; var deg=0; var colors = ['red','blue','green','purple']%>
 <% for(let [key,value] of Object.entries(q.answer)) { %>
 <% var currentColor = colors.pop(); %>
 <% keyString += `${key}: ${value}: ${currentColor} * `;%>
@@ -55,7 +55,6 @@
 </div>
 <div class="LineGraph">
 <% lineString.forEach((style,idx)=>{%>
-<div style="transform: rotate(270deg); position: relative; top: -25%;" ><%=keyStringLG[idx]%></div>
 <div style = "<%= style %>"></div>
 <%}) %>
 </div>

@@ -53,7 +53,7 @@ width: 30vw;
 {
   display: none;
   margin: 0 5vw;
-  background-color: rgb(107, 107, 109);
+  background-color: white;
 }
 #tyCard
 {
@@ -103,10 +103,12 @@ tr ,td,td form
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  box-shadow: 1px 5px 10px black;
+  position: relative;
+  top: 15vh;
 }
 .LineGraph
 {
+  margin: auto;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -134,8 +136,23 @@ input
   grid-template-columns: repeat(2,2fr);
   justify-content: center;
   align-items: flex-end;
+  padding: 1vmin 0 15vh 0;
 }
 #editSurvey *
 {
   margin: 1vmin;
+}
+.graphs *
+{
+  margin: 0 auto;
+}
+.graphs h1 , .graphs h6
+{
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+*
+{
+  text-shadow: 2px 2px 8px black;
 }

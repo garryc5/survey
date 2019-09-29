@@ -8,7 +8,7 @@ Made using: Javascript, Node, Express, MongoDb, Mongoose, AWS, HTML, CSS.
 
 ## Preview Image
 ![Oh NO](https://i.imgur.com/LCxVGz7.png);
-
+![oh no!!](/public/images/Screen&#32;Shot&#32;2019-09-29&#32;at&#32;4.49.22&#32;PM.png)
 ## Next Steps 
 - [ ] add user color schemes
 - [ ] add a wider varity of question types 
